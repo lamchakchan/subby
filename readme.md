@@ -4,7 +4,7 @@ A Windows console application for replacing variables in one file from another.
 
 Author
 ------------------------
-Lam Chan
+Lam Chan @lamchakchan
 
 http://www.codelyfe.com
 
