@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="environmentSettings" type="Fake.Core.Configurations.EnvironmentSettings" />
+    <section name="imageUploadSettings" type="Fake.Core.Configurations.ImageUploadSettings" />
+    <section name="awsSettings" type="Fake.Core.Configurations.AWSSettings" />
+    <section name="emaliNotificationSettings" type="Fake.Core.Configurations.EmailNotificationSettings" />
+  </configSections>
+  <connectionStrings>
+    <add name="ImagesDB" connectionString="Data Source=dvdb01c;Initial Catalog=ImageDB;User ID=ImageCloudPushService; Password=6Cx7VƒbjRqrvAhER" />
+  </connectionStrings>
+  <environmentSettings type="@environmentSettings.type" />
+  <imageUploadSettings jobIntervalSeconds="@imageUploadSettings.jobIntervalSeconds" />
+  <awsSettings accessKey="@awsSettings.accesskey" secretKey="@awsSettings.secretKey" bucket="@awsSettings.bucket" />
+  <emaliNotificationSettings smtp="@smtpServer" smtpPort="@smtpPort" toEmail="@emaliNotificationSettings.toEmail" fromEmail="@emailNotificationSettings.fromEmail" />
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="RazorEngine" publicKeyToken="9ee697374c7e744a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.4.0.0" newVersion="3.4.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="NLog" publicKeyToken="5120e14c03d0593c" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.1.0.0" newVersion="2.1.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
