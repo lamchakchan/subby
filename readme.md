@@ -77,5 +77,6 @@ TODO's
 - [ ] implement New Line Text Parser
 - [ ] implement target context for HTTP resources
 - [ ] implement variable context for HTTP resources 
+- [ ] implement file logging
 
  

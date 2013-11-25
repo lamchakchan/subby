@@ -14,6 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D1C171
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subby.Core.Test", "Subby.Core.Test\Subby.Core.Test.csproj", "{AAB882D2-522E-4595-B967-51CF58D4EEFA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0E034C62-8EB8-4096-99E3-3DCFE76DC659}"
+	ProjectSection(SolutionItems) = preProject
+		license.txt.txt = license.txt.txt
+		readme.md = readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

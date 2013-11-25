@@ -55,7 +55,6 @@ namespace Subby.Service.Impl
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
                     PrintError(ex.Message);
                 }
             }
