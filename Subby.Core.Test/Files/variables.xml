@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item name="@environmentSettings.type" value="QA"/>
+  <item name="@imageUploadSettings.jobIntervalSeconds" value="120"/>
+  <item name="@emaliNotificationSettings.smtpServer" value="smtp.gmail.com"/>
+  <item name="@emaliNotificationSettings.smtpPort" value="443"/>
+  <item name="@emaliNotificationSettings.toEmail" value="user1@foo.com; user2@bar.com"/>
+  <item name="@emailNotificationSettings.fromEmail" value="systems@hellworld.com"/>
+  <item name="@awsSettings.accesskey" value="testKey"/>
+  <item name="@awsSettings.secretKey" value="D+secretKey"/>
+  <item name="@awsSettings.bucket" value="publicBucket"/>
+</items>

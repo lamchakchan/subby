@@ -16,6 +16,7 @@ namespace Subby.IoC.AutoFac.Modules
             builder.RegisterType<DefaultSubstitutionService>().As<ISubstitutionService>().SingleInstance();
 
             builder.RegisterType<JsonParser>().As<IJsonVariableParser>().SingleInstance();
+            builder.RegisterType<XmlParser>().As<IXmlVariableParser>().SingleInstance();
         }
     }
 }

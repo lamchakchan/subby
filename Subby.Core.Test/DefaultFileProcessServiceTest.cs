@@ -19,7 +19,7 @@ namespace Subby.Core.Test
         [TestMethod]
         public void ReadTarget_LoadFileHasContent_True()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(new FileTargetContext { FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\target.txt") });
             Assert.IsTrue(!string.IsNullOrEmpty(content));
         }
@@ -28,14 +28,14 @@ namespace Subby.Core.Test
         [ExpectedException(typeof(Exception))]
         public void ReadTarget_LoadNonExistentFile_Fail()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(new FileTargetContext { FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\nofile.txt") });
         }
 
         [TestMethod]
-        public void ReadSource_LoadFileHasContent_True()
+        public void ReadSource_LoadJsonFileHasContent_True()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(
                 new List<FileSourceContext>
                 {
@@ -49,9 +49,25 @@ namespace Subby.Core.Test
         }
 
         [TestMethod]
-        public void ReadSource_LoadFileCountCheck_True()
+        public void ReadSource_LoadXmlFileHasContent_True()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
+            var content = service.Read(
+                new List<FileSourceContext>
+                {
+                    new FileSourceContext
+                    {
+                        Type = SourceType.Xml, 
+                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.xml")
+                    }
+                });
+            Assert.IsTrue(content.Any());
+        }
+
+        [TestMethod]
+        public void ReadSource_LoadJsonFileCountCheck_True()
+        {
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(
                 new List<FileSourceContext>
                 {
@@ -65,10 +81,26 @@ namespace Subby.Core.Test
         }
 
         [TestMethod]
+        public void ReadSource_LoadXmlFileCountCheck_True()
+        {
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
+            var content = service.Read(
+                new List<FileSourceContext>
+                {
+                    new FileSourceContext
+                    {
+                        Type = SourceType.Xml, 
+                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.xml")
+                    }
+                });
+            Assert.IsTrue(content.Count == 9);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void ReadSource_LoadFileWithUnavailableType_Fail()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(
                 new List<FileSourceContext>
                 {
@@ -84,7 +116,7 @@ namespace Subby.Core.Test
         [ExpectedException(typeof(Exception))]
         public void ReadSource_LoadNonExistentFile_Fail()
         {
-            var service = new DefaultFileProcessService(new JsonParser());
+            var service = new DefaultFileProcessService(new JsonParser(), new XmlParser());
             var content = service.Read(
                 new List<FileSourceContext>
                 {

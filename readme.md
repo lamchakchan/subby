@@ -33,6 +33,22 @@ Example JSON Formatted Variable File
 }
 ```
 
+Example XML Formatted Variable File
+------------------------
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item name="@environmentSettings.type" value="QA"/>
+  <item name="@imageUploadSettings.jobIntervalSeconds" value="120"/>
+  <item name="@emaliNotificationSettings.smtpServer" value="smtp.gmail.com"/>
+  <item name="@emaliNotificationSettings.smtpPort" value="443"/>
+  <item name="@emaliNotificationSettings.toEmail" value="user1@foo.com; user2@bar.com"/>
+  <item name="@awsSettings.accesskey" value="testKey"/>
+  <item name="@awsSettings.secretKey" value="D+secretKey"/>
+  <item name="@awsSettings.bucket" value="publicBucket"/>
+</items>
+```
+
 Example Target File for Value Substitution
 ------------------------
 ```xml
@@ -73,7 +89,7 @@ Example Target File for Value Substitution
 TODO's
 ------------------------
 
-- [ ] implement XML Parser
+- [x] implement XML Parser
 - [ ] implement New Line Text Parser
 - [ ] implement target context for HTTP resources
 - [ ] implement variable context for HTTP resources 

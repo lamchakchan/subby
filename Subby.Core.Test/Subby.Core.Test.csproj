@@ -57,6 +57,7 @@
     <Compile Include="CLPArgumentParserTest.cs" />
     <Compile Include="DefaultContentTypeServiceTest.cs" />
     <Compile Include="FileTargetContextFactoryTest.cs" />
+    <Compile Include="XmlParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\subby.core\Subby.Core.csproj">
@@ -69,6 +70,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Files\variables.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\variables.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

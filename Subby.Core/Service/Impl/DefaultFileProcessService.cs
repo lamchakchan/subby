@@ -11,10 +11,12 @@ namespace Subby.Core.Service.Impl
     public class DefaultFileProcessService : IFileResourceProcessService
     {
         private readonly IJsonVariableParser _jsonParser;
+        private readonly IXmlVariableParser _xmlParser;
 
-        public DefaultFileProcessService(IJsonVariableParser jsonParser)
+        public DefaultFileProcessService(IJsonVariableParser jsonParser, IXmlVariableParser xmlParser)
         {
             _jsonParser = jsonParser;
+            _xmlParser = xmlParser;
         }
 
         public IDictionary<string, string> Read(IList<FileSourceContext> sources)
@@ -51,7 +53,7 @@ namespace Subby.Core.Service.Impl
                     }
                     else if (source.Type == SourceType.Xml)
                     {
-                        throw new NotImplementedException("Xml parser not implemented");
+                        result = result.Union(_xmlParser.Parse(content)).ToDictionary(p => p.Key, p => p.Value);
                     }
                     else if (source.Type == SourceType.NewLineDelimited)
                     {
