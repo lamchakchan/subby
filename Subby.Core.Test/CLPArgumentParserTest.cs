@@ -62,5 +62,18 @@ namespace Subby.Core.Test
 
             Assert.IsTrue(argumentResult.SourceFilePaths.Count == 2);
         }
+
+        [TestMethod]
+        public void Parse_SourceArgumentWithPrint_True()
+        {
+            var testString1 = @"C:\Fake\Path\target1.file";
+            var testString2 = @"C:\Fake\Path\target2.file";
+
+            var parser = new CLPArgumentParser();
+            var argumentResult = parser.Parse(new[] { "-p", "-s", testString1 + ',' + testString2 });
+
+            Assert.IsTrue(argumentResult.SourceFilePaths.Count == 2);
+            Assert.IsTrue(argumentResult.Print);
+        }
     }
 }

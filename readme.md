@@ -11,6 +11,7 @@ http://www.codelyfe.com
 Command Line Usages
 ------------------------
 <pre>
+	subby -h
     subby -f json -s sourcevariablefile -t targetreplacementfile -d savefile
     subby -s source.json -t web.template.config -d web.config
     subby -s source1.json,source2.xml -t web.template.config -d web.config
@@ -94,5 +95,6 @@ TODO's
 - [ ] implement target context for HTTP resources
 - [ ] implement variable context for HTTP resources 
 - [ ] implement file logging
+- [x] implement verbose option
 
  

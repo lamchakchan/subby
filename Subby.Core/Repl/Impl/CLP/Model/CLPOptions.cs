@@ -42,8 +42,14 @@ namespace Subby.Core.Repl.Impl.CLP.Model
             set { base.TargetFilePath = value; }
         }
 
-        [Option('h', "help", HelpText = "Help screen")]
+        [Option('h', "help", HelpText = "Help screen.")]
         public override bool Help
+        {
+            get; set;
+        }
+
+        [Option('p', "print", HelpText = "Print output to the console")]
+        public override bool Print
         {
             get; set;
         }

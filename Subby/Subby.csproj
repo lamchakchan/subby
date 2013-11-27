@@ -64,7 +64,9 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools\ilmerge Subby.exe Subby.Core.dll Autofac.dll CommandLine.dll Newtonsoft.Json.dll /out:subby2.exe</PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)packages\ILMerge.MSBuild.Tasks.1.0.0.3\tools\ilmerge Subby.exe Subby.Core.dll Autofac.dll CommandLine.dll Newtonsoft.Json.dll /out:subby2.exe
+
+copy subby2.exe $(SolutionDir)\builds\subby.exe</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

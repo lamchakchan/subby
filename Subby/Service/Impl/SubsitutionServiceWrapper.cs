@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using Subby.Core.Factory;
+using Subby.Core.Model;
 using Subby.Core.Repl;
 using Subby.Core.Service;
 
@@ -40,18 +41,19 @@ namespace Subby.Service.Impl
             {
                 try
                 {
-                    var variableContext =
-                    _fileVariableContextFactory.Build(_contentTypeService.ProcessCode(parseResult.SourceType),
-                        parseResult.SourceFilePaths);
-
+                    var variableContext = _fileVariableContextFactory.Build(_contentTypeService.ProcessCode(parseResult.SourceType), parseResult.SourceFilePaths);
                     var targetContext = _fileTargetContextFactory.Build(parseResult.TargetFilePath);
-
                     var context = _substitutionContextFactory.Build(variableContext, targetContext);
 
                     _substitutionService.Process(context);
 
                     var fileDestinationContext = _fileDestinationContextFactory.Build(parseResult.DestinationFilePath);
                     _fileResultPersistenceService.Write(fileDestinationContext, context.Result);
+
+                    if (parseResult.Print)
+                    {
+                        PrintContext(context);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -79,6 +81,37 @@ namespace Subby.Service.Impl
             Console.WriteLine("");
             PrintHelp();
             Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        private void PrintContext(SubstitutionContext context)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Variables From Source File(s)");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            foreach (var item in context.Variables.OrderBy(p => p.Key))
+            {
+                Console.WriteLine("{0} => {1}", item.Key, item.Value);
+            }
+            Console.WriteLine(string.Empty);
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Target File");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(context.Target);
+            Console.WriteLine(string.Empty);
+            Console.WriteLine(string.Empty);
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Result");
+            Console.WriteLine("---------------------------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write(context.Result);
+            Console.WriteLine(string.Empty);
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            
         }
     }
 }

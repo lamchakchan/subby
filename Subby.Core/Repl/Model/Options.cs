@@ -9,5 +9,6 @@ namespace Subby.Core.Repl.Model
         public virtual string TargetFilePath { get; set; }
         public virtual string DestinationFilePath { get; set; }
         public virtual bool Help { get; set; }
+        public virtual bool Print { get; set; }
     }
 }
