@@ -50,6 +50,29 @@ Example XML Formatted Variable File
 </items>
 ```
 
+Example New Line Delimited Formatted Variable File
+------------------------
+<pre>
+@environmentSettings.type
+QA
+@imageUploadSettings.jobIntervalSeconds
+120
+@emaliNotificationSettings.smtpServer
+smtp.gmail.com
+@emaliNotificationSettings.smtpPort
+443
+@emaliNotificationSettings.toEmail
+user1@foo.com; user2@bar.com
+@emailNotificationSettings.fromEmail
+systems@hellworld.com
+@awsSettings.accesskey
+testKey
+@awsSettings.secretKey
+D+secretKey
+@awsSettings.bucket
+publicBucket
+</pre>
+
 Example Target File for Value Substitution
 ------------------------
 ```xml
@@ -91,7 +114,7 @@ TODO's
 ------------------------
 
 - [x] implement XML Parser
-- [ ] implement New Line Text Parser
+- [x] implement New Line Text Parser
 - [ ] implement target context for HTTP resources
 - [ ] implement variable context for HTTP resources 
 - [ ] implement file logging

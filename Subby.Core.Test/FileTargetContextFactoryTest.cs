@@ -83,6 +83,18 @@ namespace Subby.Core.Test
         }
 
         [TestMethod]
+        public void Build_HasThreePathWithDifferentExtensionValueWithNoContentType_True()
+        {
+            var factory = new FileVariableContextFactory(new DefaultContentTypeService());
+            var result = factory.Build(null, new List<string> { "file1.json", "file2.xml", "file2.txt" });
+
+            Assert.IsTrue(result.Count == 3);
+            Assert.IsTrue(result.First().Type.Value == SourceType.Json.Value);
+            Assert.IsTrue(result.Skip(1).First().Type.Value == SourceType.Xml.Value);
+            Assert.IsTrue(result.Skip(2).First().Type.Value == SourceType.NewLineDelimited.Value);
+        }
+
+        [TestMethod]
         public void Build_HasSinglePathValueWithUnknownContentType_True()
         {
             var factory = new FileVariableContextFactory(new DefaultContentTypeService());

@@ -70,7 +70,7 @@ namespace Subby.Core.Test
         }
 
         [TestMethod]
-        public void Parse_DictionaryContentWithChildrenEntries_Fail()
+        public void Parse_DictionaryContentWithChildrenEntries_True()
         {
             var content = "<items>" +
                           " <item name=\"foo\" value=\"bar\" />" +

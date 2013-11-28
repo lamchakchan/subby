@@ -108,6 +108,42 @@ namespace Subby.Core.Test
         }
 
         [TestMethod]
+        public void ProcessCode_XmlLowerCase_True()
+        {
+            var service = new DefaultContentTypeService();
+            var result = service.ProcessCode("xml");
+
+            Assert.IsTrue(result.Value == SourceType.Xml.Value);
+        }
+
+        [TestMethod]
+        public void ProcessCode_XmlUpperCase_True()
+        {
+            var service = new DefaultContentTypeService();
+            var result = service.ProcessCode("XML");
+
+            Assert.IsTrue(result.Value == SourceType.Xml.Value);
+        }
+
+        [TestMethod]
+        public void ProcessCode_NewLineLowerCase_True()
+        {
+            var service = new DefaultContentTypeService();
+            var result = service.ProcessCode("nl");
+
+            Assert.IsTrue(result.Value == SourceType.NewLineDelimited.Value);
+        }
+
+        [TestMethod]
+        public void ProcessCode_NewLineUpperCase_True()
+        {
+            var service = new DefaultContentTypeService();
+            var result = service.ProcessCode("NL");
+
+            Assert.IsTrue(result.Value == SourceType.NewLineDelimited.Value);
+        }
+
+        [TestMethod]
         public void ProcessCode_EmptyValue_True()
         {
             var service = new DefaultContentTypeService();

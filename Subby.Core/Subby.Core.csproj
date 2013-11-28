@@ -67,7 +67,9 @@
     <Compile Include="Model\TargetContext.cs" />
     <Compile Include="Parser\IJsonVariableParser.cs" />
     <Compile Include="Parser\Impl\JsonParser.cs" />
+    <Compile Include="Parser\Impl\NewLineParser.cs" />
     <Compile Include="Parser\Impl\XmlParser.cs" />
+    <Compile Include="Parser\INewLineVariableParser.cs" />
     <Compile Include="Parser\IVariableParser.cs" />
     <Compile Include="Parser\IXmlVariableParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

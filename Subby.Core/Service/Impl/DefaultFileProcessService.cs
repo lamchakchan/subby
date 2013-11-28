@@ -12,11 +12,13 @@ namespace Subby.Core.Service.Impl
     {
         private readonly IJsonVariableParser _jsonParser;
         private readonly IXmlVariableParser _xmlParser;
+        private readonly INewLineVariableParser _newLineParser;
 
-        public DefaultFileProcessService(IJsonVariableParser jsonParser, IXmlVariableParser xmlParser)
+        public DefaultFileProcessService(IJsonVariableParser jsonParser, IXmlVariableParser xmlParser, INewLineVariableParser newLineParser)
         {
             _jsonParser = jsonParser;
             _xmlParser = xmlParser;
+            _newLineParser = newLineParser;
         }
 
         public IDictionary<string, string> Read(IList<FileSourceContext> sources)
@@ -36,7 +38,7 @@ namespace Subby.Core.Service.Impl
             {
                 if (File.Exists(source.FilePath))
                 {
-                    var content = string.Empty;
+                    string content;
 
                     try
                     {
@@ -57,7 +59,7 @@ namespace Subby.Core.Service.Impl
                     }
                     else if (source.Type == SourceType.NewLineDelimited)
                     {
-                        throw new NotImplementedException("New line delimited parser not implemented");
+                        result = result.Union(_newLineParser.Parse(content)).ToDictionary(p => p.Key, p => p.Value);
                     }
                     else
                     {
@@ -78,7 +80,7 @@ namespace Subby.Core.Service.Impl
         {
             if (File.Exists(target.FilePath))
             {
-                var content = string.Empty;
+                string content;
                 try
                 {
                     content = File.ReadAllText(target.FilePath);
