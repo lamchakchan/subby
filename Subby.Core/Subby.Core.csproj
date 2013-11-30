@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\Enumeration.cs" />
+    <Compile Include="Enum\Impl\HttpMethod.cs" />
     <Compile Include="Enum\Impl\SourceType.cs" />
     <Compile Include="Factory\IDestinationContextFactory.cs" />
     <Compile Include="Factory\IFileDestinationContextFactory.cs" />
@@ -62,6 +63,9 @@
     <Compile Include="Model\FileDestinationContext.cs" />
     <Compile Include="Model\FileSourceContext.cs" />
     <Compile Include="Model\FileTargetContext.cs" />
+    <Compile Include="Model\HttpResource.cs" />
+    <Compile Include="Model\HttpSourceContext.cs" />
+    <Compile Include="Model\HttpTargetContext.cs" />
     <Compile Include="Model\SourceContext.cs" />
     <Compile Include="Model\SubstitutionContext.cs" />
     <Compile Include="Model\TargetContext.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Service\IContentTypeService.cs" />
     <Compile Include="Service\IFileResourceProcessService.cs" />
     <Compile Include="Service\IFileResultPersistenceService.cs" />
+    <Compile Include="Service\IHttpResourceProcessService.cs" />
     <Compile Include="Service\Impl\DefaultContentTypeService.cs" />
     <Compile Include="Service\Impl\DefaultFilePersistenceService.cs" />
     <Compile Include="Service\Impl\DefaultFileProcessService.cs" />
