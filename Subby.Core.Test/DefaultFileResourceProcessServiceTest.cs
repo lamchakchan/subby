@@ -13,9 +13,9 @@ namespace Subby.Core.Test
 {
     [TestClass]
     [DeploymentItem("Files", "Files")]
-    public class DefaultFileProcessServiceTest
+    public class DefaultFileResourceProcessServiceTest
     {
-        IFileResourceProcessService service = new DefaultFileProcessService(new JsonParser(), new XmlParser(), new NewLineParser());
+        IFileResourceProcessService service = new DefaultFileResourceProcessService(new JsonParser(), new XmlParser(), new NewLineParser());
 
         public TestContext TestContext { get; set; }
 

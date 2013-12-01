@@ -8,13 +8,13 @@ using Subby.Core.Parser;
 
 namespace Subby.Core.Service.Impl
 {
-    public class DefaultHttpProcessService : IHttpResourceProcessService
+    public class DefaultHttpResourceProcessService : IHttpResourceProcessService
     {
         private readonly IJsonVariableParser _jsonParser;
         private readonly IXmlVariableParser _xmlParser;
         private readonly INewLineVariableParser _newLineParser;
 
-        public DefaultHttpProcessService(IJsonVariableParser jsonParser, IXmlVariableParser xmlParser, INewLineVariableParser newLineParser)
+        public DefaultHttpResourceProcessService(IJsonVariableParser jsonParser, IXmlVariableParser xmlParser, INewLineVariableParser newLineParser)
         {
             _jsonParser = jsonParser;
             _xmlParser = xmlParser;

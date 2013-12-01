@@ -89,8 +89,8 @@
     <Compile Include="Service\IHttpResourceProcessService.cs" />
     <Compile Include="Service\Impl\DefaultContentTypeService.cs" />
     <Compile Include="Service\Impl\DefaultFilePersistenceService.cs" />
-    <Compile Include="Service\Impl\DefaultFileProcessService.cs" />
-    <Compile Include="Service\Impl\DefaultHttpProcessService.cs" />
+    <Compile Include="Service\Impl\DefaultFileResourceProcessService.cs" />
+    <Compile Include="Service\Impl\DefaultHttpResourceProcessService.cs" />
     <Compile Include="Service\Impl\DefaultSubstitutionService.cs" />
     <Compile Include="Service\IResultPersistenceService.cs" />
     <Compile Include="Service\IResourceProcessService.cs" />

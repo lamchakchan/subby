@@ -15,10 +15,10 @@ namespace Subby.Core.Test
 {
     [TestClass]
     [DeploymentItem("Files", "Files")]
-    public class DefaulHttpProcessServiceTest
+    public class DefaulHttpResourceProcessServiceTest
     {
         private Process _iisProcess;
-        IHttpResourceProcessService service = new DefaultHttpProcessService(new JsonParser(), new XmlParser(), new NewLineParser());
+        IHttpResourceProcessService service = new DefaultHttpResourceProcessService(new JsonParser(), new XmlParser(), new NewLineParser());
 
         public TestContext TestContext { get; set; }
 

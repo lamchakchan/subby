@@ -50,12 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DefaulHttpProcessServiceTest.cs" />
+    <Compile Include="DefaulHttpResourceProcessServiceTest.cs" />
     <Compile Include="NewLineParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DefaultSubstitutionServiceTest.cs" />
     <Compile Include="JsonParserTest.cs" />
-    <Compile Include="DefaultFileProcessServiceTest.cs" />
+    <Compile Include="DefaultFileResourceProcessServiceTest.cs" />
     <Compile Include="CLPArgumentParserTest.cs" />
     <Compile Include="DefaultContentTypeServiceTest.cs" />
     <Compile Include="FileTargetContextFactoryTest.cs" />
