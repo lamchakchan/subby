@@ -42,7 +42,7 @@ namespace Subby.Core.Test
                     new FileSourceContext
                     {
                         Type = SourceType.Json, 
-                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.json")
+                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.js")
                     }
                 });
             Assert.IsTrue(content.Any());
@@ -87,7 +87,7 @@ namespace Subby.Core.Test
                     new FileSourceContext
                     {
                         Type = SourceType.Json, 
-                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.json")
+                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.js")
                     }
                 });
             Assert.IsTrue(content.Count == 9);
@@ -133,7 +133,7 @@ namespace Subby.Core.Test
                     new FileSourceContext
                     {
                         Type = SourceType.Unknown, 
-                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.json")
+                        FilePath = Path.Combine(TestContext.TestDeploymentDir, @"Files\variables.js")
                     }
                 });
         }

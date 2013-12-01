@@ -71,7 +71,7 @@
     <Content Include="Files\target.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Files\variables.json">
+    <Content Include="Files\variables.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Files\variables.txt">
