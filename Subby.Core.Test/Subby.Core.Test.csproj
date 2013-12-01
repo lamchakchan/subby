@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DefaulHttpProcessServiceTest.cs" />
     <Compile Include="NewLineParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DefaultSubstitutionServiceTest.cs" />
