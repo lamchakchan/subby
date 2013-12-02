@@ -54,6 +54,7 @@
     <Compile Include="Factory\IFileVariableContextFactory.cs" />
     <Compile Include="Factory\IHttpVariableContextFactory.cs" />
     <Compile Include="Factory\Impl\DefaultSubstitutionContextFactory.cs" />
+    <Compile Include="Factory\Impl\DefaultVariableContextFactory.cs" />
     <Compile Include="Factory\Impl\FileDestinationContextFactory.cs" />
     <Compile Include="Factory\Impl\FileTargetContextFactory.cs" />
     <Compile Include="Factory\Impl\FileVariableContextFactory.cs" />
