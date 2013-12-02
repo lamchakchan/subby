@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using Subby.Core.Enum.Impl;
 using Subby.Core.Model;
 using Subby.Core.Service;
@@ -25,7 +26,7 @@ namespace Subby.Core.Factory.Impl
 
             List<FileSourceContext> result = null;
 
-            if (type == null || type == SourceType.Unknown)
+            if (type == null || type.Value == SourceType.Unknown.Value)
             {
                 result = paths.Select(p =>
                     new FileSourceContext

@@ -52,10 +52,12 @@
     <Compile Include="Factory\IFileDestinationContextFactory.cs" />
     <Compile Include="Factory\IFileTargetContextFactory.cs" />
     <Compile Include="Factory\IFileVariableContextFactory.cs" />
+    <Compile Include="Factory\IHttpVariableContextFactory.cs" />
     <Compile Include="Factory\Impl\DefaultSubstitutionContextFactory.cs" />
     <Compile Include="Factory\Impl\FileDestinationContextFactory.cs" />
     <Compile Include="Factory\Impl\FileTargetContextFactory.cs" />
     <Compile Include="Factory\Impl\FileVariableContextFactory.cs" />
+    <Compile Include="Factory\Impl\HttpVariableContextFactory.cs" />
     <Compile Include="Factory\ISubstitutionContextFactory.cs" />
     <Compile Include="Factory\ITargetContextFactory.cs" />
     <Compile Include="Factory\IVariablesContextFactory.cs" />

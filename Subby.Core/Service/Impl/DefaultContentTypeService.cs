@@ -23,6 +23,25 @@ namespace Subby.Core.Service.Impl
             }
         }
 
+        public SourceType ProcessUrlPath(string urlPath)
+        {
+            var lastIndex = urlPath.LastIndexOf('.');
+            var extension = urlPath.Substring(lastIndex, urlPath.Length - lastIndex);
+
+            switch (extension)
+            {
+                case ".js":
+                case ".json":
+                    return SourceType.Json;
+                case ".xml":
+                    return SourceType.Xml;
+                case ".txt":
+                    return SourceType.NewLineDelimited;
+                default:
+                    return SourceType.Unknown;
+            }
+        }
+
         public SourceType ProcessCode(string code)
         {
             return string.IsNullOrEmpty(code) ? SourceType.Unknown : SourceType.FromValue(code.ToLower());

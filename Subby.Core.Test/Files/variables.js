@@ -7,5 +7,5 @@
 	'@emailNotificationSettings.fromEmail' : 'systems@hellworld.com',
 	'@awsSettings.accesskey' : 'testKey',
 	'@awsSettings.secretKey' : 'D+secretKey',
-	'@awsSettings.bucket' : 'publicBucket',
+	'@awsSettings.bucket' : 'publicBucket'
 }

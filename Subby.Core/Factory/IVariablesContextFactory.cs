@@ -6,6 +6,6 @@ namespace Subby.Core.Factory
 {
     public interface IVariablesContextFactory<TSource> where TSource : SourceContext
     {
-        IList<FileSourceContext> Build(SourceType type, IList<string> paths);
+        IList<TSource> Build(SourceType type, IList<string> paths);
     }
 }
