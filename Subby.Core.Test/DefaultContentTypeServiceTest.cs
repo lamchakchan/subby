@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Subby.Core.Enum.Impl;
 using Subby.Core.Service.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class DefaultContentTypeServiceTest
+    public class DefaultContentTypeServiceTest : BaseTest
     {
         [TestMethod]
         public void ProcessFilePath_JsonFilePathLowerCase_True()

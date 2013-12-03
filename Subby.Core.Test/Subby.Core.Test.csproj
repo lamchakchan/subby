@@ -50,9 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Common\BaseIISTest.cs" />
+    <Compile Include="Common\BaseTest.cs" />
+    <Compile Include="Common\BaseTestWithFiles.cs" />
     <Compile Include="DefaulHttpResourceProcessServiceTest.cs" />
+    <Compile Include="DefaultResourceProcessServiceTest.cs" />
     <Compile Include="DefaultVariableContextFactoryTest.cs" />
     <Compile Include="FileVariableContextFactoryTest.cs" />
+    <Compile Include="HttpTargetContextFactoryTest.cs" />
     <Compile Include="HttpVariableContextFactoryTest.cs" />
     <Compile Include="NewLineParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

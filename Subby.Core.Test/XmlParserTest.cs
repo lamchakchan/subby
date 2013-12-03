@@ -3,11 +3,12 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Subby.Core.Parser;
 using Subby.Core.Parser.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class XmlParserTest
+    public class XmlParserTest : BaseTest
     {
         IVariableParser parser = new XmlParser();
 

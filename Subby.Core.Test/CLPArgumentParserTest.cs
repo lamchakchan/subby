@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Subby.Core.Repl.Impl.CLP;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class CLPArgumentParserTest
+    public class CLPArgumentParserTest : BaseTest
     {
         [TestMethod]
         public void Parse_TypeArgument_True()

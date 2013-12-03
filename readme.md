@@ -115,8 +115,8 @@ TODO's
 
 - [x] implement XML Parser
 - [x] implement New Line Text Parser
-- [ ] implement target context for HTTP resources
-- [ ] implement variable context for HTTP resources 
+- [x] implement target context for HTTP resources
+- [x] implement variable context for HTTP resources 
 - [ ] implement file logging
 - [x] implement verbose option
 

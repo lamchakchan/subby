@@ -6,11 +6,12 @@ using Subby.Core.Enum.Impl;
 using Subby.Core.Factory;
 using Subby.Core.Factory.Impl;
 using Subby.Core.Service.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class HttpVariableContextFactoryTest
+    public class HttpVariableContextFactoryTest : BaseTest
     {
         IHttpVariableContextFactory factory = new HttpVariableContextFactory(new DefaultContentTypeService());
 

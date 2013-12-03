@@ -7,11 +7,12 @@ using Subby.Core.Factory;
 using Subby.Core.Factory.Impl;
 using Subby.Core.Model;
 using Subby.Core.Service.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class DefaultVariableContextFactoryTest
+    public class DefaultVariableContextFactoryTest : BaseTest
     {
         ICompositeVariablesContextFactory factory = new DefaultVariableContextFactory(new FileVariableContextFactory(new DefaultContentTypeService()), new HttpVariableContextFactory(new DefaultContentTypeService()));
 

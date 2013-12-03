@@ -8,16 +8,14 @@ using Subby.Core.Model;
 using Subby.Core.Parser.Impl;
 using Subby.Core.Service;
 using Subby.Core.Service.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    [DeploymentItem("Files", "Files")]
-    public class DefaultFileResourceProcessServiceTest
+    public class DefaultFileResourceProcessServiceTest : BaseTestWithFiles
     {
         IFileResourceProcessService service = new DefaultFileResourceProcessService(new JsonParser(), new XmlParser(), new NewLineParser());
-
-        public TestContext TestContext { get; set; }
 
         [TestMethod]
         public void ReadTarget_LoadFileHasContent_True()

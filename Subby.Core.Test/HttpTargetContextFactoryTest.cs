@@ -2,20 +2,28 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Subby.Core.Factory;
 using Subby.Core.Factory.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class FileTargetContextFactoryTest
+    public class HttpTargetContextFactoryTest : BaseTest
     {
-        IFileTargetContextFactory factory = new FileTargetContextFactory();
+        IHttpTargetContextFactory factory = new HttpTargetContextFactory();
 
         [TestMethod]
-        public void Build_HasPathValue_True()
+        public void Build_HasGoodUrlPathValue_True()
         {
-            var result = factory.Build("abc");
+            var result = factory.Build("http://localhost:10500");
 
-            Assert.IsTrue(!string.IsNullOrEmpty(result.FilePath));
+            Assert.IsTrue(!string.IsNullOrEmpty(result.HttpResource.Url));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Build_HasBadUrlPathValue_True()
+        {
+            var result = factory.Build("badUrl");
         }
 
         [TestMethod]

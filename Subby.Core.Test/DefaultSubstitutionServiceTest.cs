@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Subby.Core.Model;
 using Subby.Core.Service;
 using Subby.Core.Service.Impl;
+using Subby.Core.Test.Common;
 
 namespace Subby.Core.Test
 {
     [TestClass]
-    public class DefaultSubstitutionServiceTest
+    public class DefaultSubstitutionServiceTest : BaseTest
     {
         ISubstitutionService substitutionService = new DefaultSubstitutionService();
 
