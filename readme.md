@@ -12,10 +12,12 @@ Command Line Usages
 ------------------------
 <pre>
 	subby -h
+	subby -p -f json -s sourcevariablefile -t targetreplacementfile -d savefile
     subby -f json -s sourcevariablefile -t targetreplacementfile -d savefile
     subby -s source.json -t web.template.config -d web.config
     subby -s source1.json,source2.xml -t web.template.config -d web.config
     subby -s ../source1.json -t ./templates/web.config -d web.config
+	subby -s source.json,http://www.abc.com/source2.xml -t http://www.abc.com/target.config -d web.config
 </pre>
 
 Example JSON Formatted Variable File
