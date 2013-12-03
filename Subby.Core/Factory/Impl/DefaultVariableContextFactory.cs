@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Subby.Core.Enum.Impl;
+using Subby.Core.Extensions;
 using Subby.Core.Model;
 
 namespace Subby.Core.Factory.Impl
 {
-    public class DefaultVariableContextFactory : IVariablesContextFactory<SourceContext>
+    public class DefaultVariableContextFactory : ICompositeVariablesContextFactory
     {
         private readonly IFileVariableContextFactory _fileVariableContextFactory;
         private readonly IHttpVariableContextFactory _httpVariableContextFactory;
@@ -28,7 +29,7 @@ namespace Subby.Core.Factory.Impl
 
             foreach (var path in paths)
             {
-                if (path.ToLower().StartsWith("http://") || path.ToLower().StartsWith("https://"))
+                if (path.IsUrl())
                 {
                     sourceContexts.AddRange(_httpVariableContextFactory.Build(type, new[] { path }));
                 }

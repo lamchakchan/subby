@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using Subby.Core.Factory;
 using Subby.Core.Model;
 using Subby.Core.Repl;
@@ -13,20 +12,20 @@ namespace Subby.Service.Impl
         private readonly IArgumentParser _argumentParser;
         private readonly IHelpPrinter _helpPrinter;
         private readonly IContentTypeService _contentTypeService;
-        private readonly IFileVariableContextFactory _fileVariableContextFactory;
-        private readonly IFileTargetContextFactory _fileTargetContextFactory;
+        private readonly ICompositeVariablesContextFactory _variableContextFactory;
+        private readonly ICompositeTargetContextFactory _targetContextFactory;
         private readonly IFileDestinationContextFactory _fileDestinationContextFactory;
         private readonly ISubstitutionContextFactory _substitutionContextFactory;
         private readonly ISubstitutionService _substitutionService;
         private readonly IFileResultPersistenceService _fileResultPersistenceService;
 
-        public SubsitutionServiceWrapper(IArgumentParser argumentParser, IHelpPrinter helpPrinter, IContentTypeService contentTypeService, IFileVariableContextFactory fileVariableContextFactory, IFileTargetContextFactory fileTargetContextFactory, IFileDestinationContextFactory fileDestinationContextFactory, ISubstitutionContextFactory substitutionContextFactory, ISubstitutionService substitutionService, IFileResultPersistenceService fileResultPersistenceService)
+        public SubsitutionServiceWrapper(IArgumentParser argumentParser, IHelpPrinter helpPrinter, IContentTypeService contentTypeService, ICompositeVariablesContextFactory variableContextFactory, ICompositeTargetContextFactory targetContextFactory, IFileDestinationContextFactory fileDestinationContextFactory, ISubstitutionContextFactory substitutionContextFactory, ISubstitutionService substitutionService, IFileResultPersistenceService fileResultPersistenceService)
         {
             _argumentParser = argumentParser;
             _helpPrinter = helpPrinter;
             _contentTypeService = contentTypeService;
-            _fileVariableContextFactory = fileVariableContextFactory;
-            _fileTargetContextFactory = fileTargetContextFactory;
+            _variableContextFactory = variableContextFactory;
+            _targetContextFactory = targetContextFactory;
             _fileDestinationContextFactory = fileDestinationContextFactory;
             _substitutionContextFactory = substitutionContextFactory;
             _substitutionService = substitutionService;
@@ -41,8 +40,8 @@ namespace Subby.Service.Impl
             {
                 try
                 {
-                    var variableContext = _fileVariableContextFactory.Build(_contentTypeService.ProcessCode(parseResult.SourceType), parseResult.SourceFilePaths);
-                    var targetContext = _fileTargetContextFactory.Build(parseResult.TargetFilePath);
+                    var variableContext = _variableContextFactory.Build(_contentTypeService.ProcessCode(parseResult.SourceType), parseResult.SourceFilePaths);
+                    var targetContext = _targetContextFactory.Build(parseResult.TargetFilePath);
                     var context = _substitutionContextFactory.Build(variableContext, targetContext);
 
                     _substitutionService.Process(context);

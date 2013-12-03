@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DefaulHttpResourceProcessServiceTest.cs" />
+    <Compile Include="DefaultVariableContextFactoryTest.cs" />
     <Compile Include="FileVariableContextFactoryTest.cs" />
     <Compile Include="HttpVariableContextFactoryTest.cs" />
     <Compile Include="NewLineParserTest.cs" />

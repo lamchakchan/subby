@@ -13,6 +13,7 @@ namespace Subby.IoC.AutoFac.Modules
             builder.RegisterType<DefaultContentTypeService>().As<IContentTypeService>().SingleInstance();
             builder.RegisterType<DefaultFileResourceProcessService>().As<IFileResourceProcessService>().SingleInstance();
             builder.RegisterType<DefaultHttpResourceProcessService>().As<IHttpResourceProcessService>().SingleInstance();
+            builder.RegisterType<DefaultResourceProcessService>().As<ICompositeResourceProcessService>().SingleInstance();
             builder.RegisterType<DefaultFilePersistenceService>().As<IFileResultPersistenceService>().SingleInstance();
             builder.RegisterType<DefaultSubstitutionService>().As<ISubstitutionService>().SingleInstance();
 

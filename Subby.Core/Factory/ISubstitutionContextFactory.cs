@@ -5,6 +5,6 @@ namespace Subby.Core.Factory
 {
     public interface ISubstitutionContextFactory
     {
-        SubstitutionContext Build(IList<FileSourceContext> sources, FileTargetContext target);
+        SubstitutionContext Build(IList<SourceContext> sources, TargetContext target);
     }
 }

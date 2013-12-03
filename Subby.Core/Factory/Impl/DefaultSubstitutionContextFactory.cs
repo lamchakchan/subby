@@ -6,20 +6,20 @@ namespace Subby.Core.Factory.Impl
 {
     public class DefaultSubstitutionContextFactory : ISubstitutionContextFactory
     {
-        private readonly IFileResourceProcessService _fileResourceProcessService;
+        private readonly ICompositeResourceProcessService _resourceProcessService;
         
-        public DefaultSubstitutionContextFactory(IFileResourceProcessService fileResourceProcessService)
+        public DefaultSubstitutionContextFactory(ICompositeResourceProcessService resourceProcessService)
         {
-            _fileResourceProcessService = fileResourceProcessService;
+            _resourceProcessService = resourceProcessService;
         }
 
-        public SubstitutionContext Build(IList<FileSourceContext> sources, FileTargetContext target)
+        public SubstitutionContext Build(IList<SourceContext> sources, TargetContext target)
         {
             return new SubstitutionContext
-            {
-                Variables = _fileResourceProcessService.Read(sources),
-                Target = _fileResourceProcessService.Read(target),
-            };
+                   {
+                       Variables = _resourceProcessService.Read(sources),
+                       Target = _resourceProcessService.Read(target)
+                   };
         }
     }
 }
