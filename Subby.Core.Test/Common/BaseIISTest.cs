@@ -58,11 +58,9 @@ namespace Subby.Core.Test.Common
         {
             try
             {
-                if (_iisProcess != null && !_iisProcess.HasExited)
-                {
-                    _iisProcess.Kill();
-                    _iisProcess.Dispose();
-                }
+                if (_iisProcess == null || _iisProcess.HasExited) return;
+                _iisProcess.Kill();
+                _iisProcess.Dispose();
             }
             catch
             {

@@ -69,6 +69,7 @@
     <Compile Include="Factory\ISubstitutionContextFactory.cs" />
     <Compile Include="Factory\ITargetContextFactory.cs" />
     <Compile Include="Factory\IVariablesContextFactory.cs" />
+    <Compile Include="IoC\Impl\IoCHelper.cs" />
     <Compile Include="Model\DestinationContext.cs" />
     <Compile Include="Model\FileDestinationContext.cs" />
     <Compile Include="Model\FileSourceContext.cs" />

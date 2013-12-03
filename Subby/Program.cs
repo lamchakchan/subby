@@ -11,9 +11,7 @@ namespace Subby
         {
             var builder = new ContainerBuilder();
             builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
-            builder.RegisterModule(new ReplModule());
-            builder.RegisterModule(new FactoryModule());
-            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule<RegistrationModule>();
             var container = builder.Build();
 
             var substitutionServiceWrapper = container.Resolve<SubsitutionServiceWrapper>();
