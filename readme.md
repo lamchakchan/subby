@@ -119,7 +119,9 @@ TODO's
 - [x] implement New Line Text Parser
 - [x] implement target context for HTTP resources
 - [x] implement variable context for HTTP resources 
-- [ ] implement file logging
+- [x] implement file logging
 - [x] implement verbose option
+- [ ] improve on error handling and error messaging
+- [ ] improve on facading the context factory calls
 
  

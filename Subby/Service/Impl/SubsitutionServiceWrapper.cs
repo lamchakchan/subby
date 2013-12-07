@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Subby.Core.Factory;
 using Subby.Core.Model;
 using Subby.Core.Repl;
@@ -52,6 +53,12 @@ namespace Subby.Service.Impl
                     if (parseResult.Print)
                     {
                         PrintContext(context);
+                    }
+                    if (parseResult.Log)
+                    {
+                        var logFileDestinationContext = _fileDestinationContextFactory.Build(string.Format("subby.{0:yyyy-dd-MM-HH-mm-ss-fff}.log", DateTime.Now));
+                        _fileResultPersistenceService.Write(logFileDestinationContext, WriteContext(context));
+
                     }
                 }
                 catch (Exception ex)
@@ -110,7 +117,31 @@ namespace Subby.Service.Impl
             Console.WriteLine(string.Empty);
 
             Console.ForegroundColor = ConsoleColor.Gray;
-            
+        }
+
+        private string WriteContext(SubstitutionContext context)
+        {
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("Variables From Source File(s)");
+            stringBuilder.AppendLine("---------------------------------------------------------------------");
+            foreach (var item in context.Variables.OrderBy(p => p.Key))
+            {
+                stringBuilder.AppendLine(string.Format("{0} => {1}", item.Key, item.Value));
+            }
+            stringBuilder.AppendLine(string.Empty);
+
+            stringBuilder.AppendLine("Target File");
+            stringBuilder.AppendLine("---------------------------------------------------------------------");
+            stringBuilder.AppendLine(context.Target);
+            stringBuilder.AppendLine(string.Empty);
+            stringBuilder.AppendLine(string.Empty);
+
+            stringBuilder.AppendLine("Result");
+            stringBuilder.AppendLine("---------------------------------------------------------------------");
+            stringBuilder.AppendLine(context.Result);
+            stringBuilder.AppendLine(string.Empty);
+
+            return stringBuilder.ToString();
         }
     }
 }

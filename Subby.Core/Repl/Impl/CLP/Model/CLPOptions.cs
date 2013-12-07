@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using CommandLine;
 using CommandLine.Text;
@@ -54,12 +55,18 @@ namespace Subby.Core.Repl.Impl.CLP.Model
             get; set;
         }
 
+        [Option('l', "log", HelpText = "Log to file")]
+        public override bool Log
+        {
+            get; set; 
+        }
+
         public string GetUsage()
         {
             var help = new HelpText
             {
                 Heading = new HeadingInfo("Subby", Assembly.GetExecutingAssembly().GetName().Version.ToString()),
-                Copyright = new CopyrightInfo("CodeLyfe LLC", 2013),
+                Copyright = new CopyrightInfo("CodeLyfe LLC", DateTime.Now.Year),
                 AdditionalNewLineAfterOption = true,
                 AddDashesToOption = true
             };

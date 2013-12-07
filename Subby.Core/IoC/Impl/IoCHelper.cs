@@ -17,7 +17,7 @@ namespace Subby.Core.IoC.Impl
             if (action != null)
             {
                 //Factories
-                action(typeof (ISubstitutionContextFactory), typeof (DefaultSubstitutionContextFactory));
+                action(typeof(ISubstitutionContextFactory), typeof (DefaultSubstitutionContextFactory));
                 action(typeof(IFileVariableContextFactory), typeof(FileVariableContextFactory));
                 action(typeof(IHttpVariableContextFactory), typeof(HttpVariableContextFactory));
                 action(typeof(ICompositeVariablesContextFactory), typeof(DefaultVariableContextFactory));
