@@ -123,5 +123,4 @@ TODO's
 - [x] implement verbose option
 - [ ] improve on error handling and error messaging
 - [ ] improve on facading the context factory calls
-
- 
+- [ ] create winform application
