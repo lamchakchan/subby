@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Subby.Core.Model;
 
 namespace Subby.Core.Service.Impl
@@ -14,9 +15,16 @@ namespace Subby.Core.Service.Impl
                 Directory.CreateDirectory(directoryPath);
             }
 
-            using (var writer = new StreamWriter(destination.FilePath, false))
+            try
             {
-                writer.Write(content);
+                using (var writer = new StreamWriter(destination.FilePath, false))
+                {
+                    writer.Write(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Error writing to file ({0})", destination.FilePath), ex);
             }
         }
     }
